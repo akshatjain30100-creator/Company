@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>Agarwal Communication & E-Mitra Service Center | Ajmer</title>
+    <style>
+        /* Modern & Responsive CSS Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        :root {
+            --primary: #0073e6;
+            --secondary: #20232a;
+            --accent: #ff9900;
+            --light: #f4f6f9;
+            --white: #ffffff;
+            --success: #28a745;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--secondary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Navigation Bar */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 20px;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .emitra-tag {
+            background-color: var(--accent);
+            color: var(--white);
+            font-size: 11px;
+            padding: 3px 8px;
+            border-radius: 3px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--secondary);
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 5px 0;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 115, 230, 0.88), rgba(32, 35, 42, 0.92)), url('https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
+            color: var(--white);
+            text-align: center;
+            padding: 90px 20px;
+        }
+
+        .hero h1 {
+            font-size: 38px;
+            margin-bottom: 15px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .hero p {
+            font-size: 17px;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.95;
+        }
+
+        .btn {
+            background-color: var(--accent);
+            color: var(--white);
+            padding: 12px 30px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            display: inline-block;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+        }
+
+        .btn:hover {
+            opacity: 0.95;
+            transform: translateY(-1px);
+        }
+
+        /* Section Global Layout */
+        .section {
+            padding: 60px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 28px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background-color: var(--primary);
+            margin: 10px auto 0;
+        }
+
+        /* Services Section Grids */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .service-card {
+            background-color: var(--white);
+            padding: 30px 24px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+        }
+
+        .service-card span.icon {
+            font-size: 42px;
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        /* Showcase / Products */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .product-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.04);
+            text-align: center;
+            padding-bottom: 15px;
+        }
+
+        .product-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            background-color: #ddd;
+        }
+
+        .product-card h3 {
+            margin: 12px 0 5px;
+            font-size: 16px;
+        }
+
+        /* Contact & Information Form Container */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            background-color: var(--white);
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+        }
+
+        .contact-info h3 {
+            margin-bottom: 15px;
+            font-size: 22px;
+        }
+
+        .contact-info p {
+            margin-bottom: 12px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        form input, form textarea, form select {
+            padding: 12px;
+            border: 1px solid #dcdfe6;
+            border-radius: 6px;
+            width: 100%;
+            font-size: 15px;
+            background-color: #fff;
+            color: var(--secondary);
+            -webkit-appearance: none; 
+            appearance: none;
+        }
+        
+        form select {
+            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10'><path d='M0 3l5 5 5-5z' fill='%23666'/></svg>");
+            background-repeat: no-repeat;
+            background-position: right 15px center;
+            background-size: 12px;
+            padding-right: 40px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--secondary);
+            color: var(--white);
+            text-align: center;
+            padding: 24px 20px;
+            margin-top: 40px;
+            font-size: 14px;
+        }
+
+        footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        /* ==========================================================================
+           Cross-Platform Media Queries (PC, Tablet, Android, Apple iPhone/iPad)
+           ========================================================================== */
+        
+        /* Tablets & Small Notebooks (Landscape / Portrait) -> Max 992px */
+        @media (max-width: 992px) {
+            .contact-container {
+                grid-template-columns: 1fr; 
+                gap: 30px;
+                padding: 30px;
+            }
+            .hero h1 {
+                font-size: 34px;
+            }
+        }
+
+        /* Mobile Viewports (Android Devices & Apple iPhones) -> Max 768px */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+                padding: 15px 10px;
+            }
+            .nav-links {
+                width: 100%;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 12px;
+                font-size: 14px;
+            }
+            .hero {
+                padding: 60px 15px;
+            }
+            .hero h1 {
+                font-size: 26px;
+            }
+            .hero p {
+                font-size: 15px;
+            }
+            .section {
+                padding: 40px 15px;
+            }
+            .section-title {
+                font-size: 24px;
+            }
+            .product-grid {
+                grid-template-columns: repeat(2, 1fr); 
+                gap: 12px;
+            }
+            .product-img {
+                height: 140px;
+            }
+        }
+
+        /* Extra Small Screens (Compact Mobile Phones) -> Max 480px */
+        @media (max-width: 480px) {
+            .logo {
+                justify-content: center;
+                font-size: 19px;
+            }
+            .product-grid {
+                grid-template-columns: 1fr; 
+            }
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header & Navigation -->
+    <header>
+        <nav class="navbar">
+            <a href="#" class="logo">
+                Agarwal Communication 
+                <span class="emitra-tag">Govt. E-Mitra</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">E-Mitra Services</a></li>
+                <li><a href="#education">Education Forms</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Showcase Section -->
+    <section id="home" class="hero">
+        <h1>Authorized E-Mitra & Digital Form Filling Center</h1>
+        <p>Your trusted partner in Ajmer for all Government of India & Rajasthan digital services, college university admissions, competitive exam online applications, and smart communication fixes.</p>
+        <a href="#contact" class="btn">Apply Online / Enquire</a>
+    </section>
+
+    <!-- Core Business Offerings Section -->
+    <section id="services" class="section">
+        <h2 class="section-title">Government E-Mitra Services</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <span class="icon">📜</span>
+                <h3>Government Certificates</h3>
+                <p>Hassle-free application and printing for Jan Aadhaar, Bonafide/Domicile (Mool Niwas), Caste (Jati), Income, and EWS certificates.</p>
+            </div>
+            <div class="service-card">
+                <span class="icon">🆔</span>
+                <h3>Official Identity Cards</h3>
+                <p>New registrations, rectifications, and updates for Aadhaar Card, PAN Card, Voter ID, and Voter list corrections.</p>
+            </div>
+            <div class="service-card">
+                <span class="icon">💸</span>
+                <h3>Utility Bills & Banking</h3>
+                <p>Instant electric meter payments, water bill collections, mobile recharges, and secure micro-ATM money transfers.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Form Filling Section -->
+    <section id="education" class="section" style="background-color: #ebeff5;">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <h2 class="section-title">Academic & Competitive Exam Solutions</h2>
+            <div class="services-grid">
+                <div class="service-card" style="background-color: #ffffff;">
+                    <span class="icon">🎓</span>
+                    <h3>College & University Admission</h3>
+                    <p>Error-free online form filling for MDSU Ajmer, board registrations, degree verification, and institutional admissions.</p>
+                </div>
+                <div class="service-card" style="background-color: #ffffff;">
+                    <span class="icon">📝</span>
+                    <h3>Competitive Recruitment</h3>
+                    <p>Precise processing for RPSC, RSMSSB, SSC, Banking, Railways, Teachers (REET), and all central/state government job forms.</p>
+                </div>
+                <div class="service-card" style="background-color: #ffffff;">
+                    <span class="icon">💰</span>
+                    <h3>Scholarship Portals</h3>
+                    <p>End-to-end guidance and processing for Samaj Kalyan (SJMS) scholarship, minority stipends, and educational grants.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Featured Category Brands -->
+    <section id="products" class="section">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <h2 class="section-title">Mobile & Digital Accessories</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=400&q=80" alt="Smartphones" class="product-img">
+                    <h3>Latest 5G Phones</h3>
+                </div>
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1590658268037-6bf12165a8df?auto=format&fit=crop&w=400&q=80" alt="Audio Earbuds" class="product-img">
+                    <h3>Wireless TWS Earbuds</h3>
+                </div>
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1628155930542-3c7a64e2c833?auto=format&fit=crop&w=400&q=80" alt="Charging Gear" class="product-img">
+                    <h3>Fast Charging Adapters</h3>
+                </div>
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1608156639585-b3a032ef9689?auto=format&fit=crop&w=400&q=80" alt="Protective covers" class="product-img">
+                    <h3>Premium Back Cases</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Connect & Interaction Contact Section -->
+    <section id="contact" class="section" style="background-color: #ebeff5;">
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>Visit Our Hub</h3>
+                <p><strong>📍 Location:</strong> Ajmer, Rajasthan, India</p>
+                <p><strong>📞 Phone:</strong> +91 93513 53535</p>
+                <p><strong>✉️ Email:</strong> emitra@agarwalcommunication.com</p>
+                <p><strong>🕒 Office Hours:</strong> 9:00 AM – 8:30 PM (All Academic Working Days)</p>
+                <p style="margin-top: 20px;">
+                    <a href="https://www.facebook.com/share/18wSHY49ey/" target="_blank" class="btn" style="background-color: #1877f2;">Connect on Facebook</a>
+                </p>
+            </div>
+            <div>
+                <h3>Online Form & Service Request</h3>
+                <form action="#" method="POST" onsubmit="alert('Thank you! Your information query has been logged. Our form coordinator will reach out to verify documents.'); return false;">
+                    <input type="text" placeholder="Your Full Name" required>
+                    <input type="tel" placeholder="Active Mobile Number (WhatsApp preferred)" required>
+                    <select required>
+                        <option value="">-- Choose Desired Service --</option>
+                        <option value="emitra">Govt. E-Mitra Certificate (Caste / Domicile / Jan-Aadhaar)</option>
+                        <option value="exam">Competitive Exam Form Filling (RPSC / SSC / RSMSSB)</option>
+                        <option value="college">College / University Admission Form</option>
+                        <option value="identity">Identity Registration (PAN / Aadhaar / Voter ID)</option>
+                        <option value="other">Mobile Accessories / Others</option>
+                    </select>
+                    <textarea rows="4" placeholder="Provide details (e.g. Exam Name, College Course name or Certificate required)" required></textarea>
+                    <button type="submit" class="btn" style="border:none; cursor: pointer; width: 100%;">Submit Request</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Page Footer -->
+    <footer>
+        <p>&copy; 2026 Agarwal Communication. All Rights Reserved. | <a href="https://www.facebook.com/share/18wSHY49ey/" target="_blank">Facebook Page</a></p>
+    </footer>
+
+</body>
+</html>
